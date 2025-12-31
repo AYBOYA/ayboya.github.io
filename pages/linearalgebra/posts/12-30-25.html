@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Linear Algebra</title>
+	<link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+
+<body>
+    <a href="../linearalgebrahome.html"><div class="back">\(\impliedby\)Back</div></a>
+    <div class="center">
+        <h1>What is a Linear Algebra?</h1>
+
+        It seems that the study of Linear Algebra has to do with Linear Functions.
+    <br>
+        Now, then the question is what exactly Linear Functions are - which seems to be a slightly annoying question to answer.
+    <br><br>
+        <h2>Definition of Linear Function</h2>
+        Per UC Davis [18], A Linear Function \(L\) is a function that satisfies:
+        <ol>
+            <li>Additivity: \(L(u + v) = L(u) + L(v)\)</li>
+            <li>Homogeneity: \(L(c * u) = c * L(u)\)</li>
+        </ol>
+
+        For vectors \(u, v\), scalar \(c\), and operations \(+\) (Vector Addition), and \(*\) (Scalar Multiplication).
+<br><br>
+        Ignoring the tantalizingly interesting fact that Additivity is exactly the definition of a Homomorphism, we must further define what exactly a vector and scalar are.
+        <br><br>
+        <h3>What is a Scalar?</h3>
+        A scalar is an element of a Field \(F\); which is a set that satisfies:
+        <ol>
+            <li>Commutativity of Addition: \(a + b = b + a\)</li>
+            <li>Associativity of Addition: \((a + b) + c = a + (b + c)\)</li>
+            <li>Existence of Additive Identity \(0\): \(a + 0 = a\)</li>
+            <li>Existence of Additive Inverses: \(a + (-a) = 0\)</li>
+            <li>Commutativity of Multiplication: \(a * b = b * a\)</li>
+            <li>Associativity of Multiplication: \((a * b) * c = a * (b * c)\)</li>
+            <li>Existence of Multiplicative Identity \(1\): \(a * 1 = a\)</li>
+            <li>Existence of Non-Zero Multiplicative Inverses: \(a * (a^{-1}) = 1\)</li>
+            <li>Distributivity: \(a * (b + c) = ab + ac\)</li>
+            <li>\(0 \neq 1\)</li>
+        </ol>
+        \(\forall a,b,c \in F\), and binary operations \(+\) (Addition), and \(*\) (Multiplication)
+        <br><br>
+        <h3>What is a Vector?</h3>
+        A vector is an element of a Vector Space \(V\); which is a set that satisfies:
+        <ol>
+            <li>Commutativity of Addition: \(u + v = v + u\)</li>
+            <li>Associativity of Addition: \((u + v) + z = u + (v + z)\)</li>
+            <li>Existence of Additive Identity \(0\): \(u + 0 = u\)</li>
+            <li>Existence of Additive Inverses: \(u + (-u) = 0\)</li>
+            <li>Existence of Multiplicative Identity \(1\): \(u * 1 = u\)</li>
+            <li>Distributivity: \(c * (v + z) = cv + cz\)</li>
+        </ol>
+        \(\forall u,v,z \in V\), scalar \(c\), and operations \(+\) (Vector Addition), and \(*\) (Scalar Multiplication)
+        <br><br>
+        I could go on to define Vector Addition and Scalar Multiplication, but I would rather not (because I am lazy).
+        More interesting to me is that a Vector Space seems to be a Group w.r.t Vector Addition with two additional constraints.
+        <br><br>
+        At this point I suppose I must have faith that Linear Functions as defined above are particularly useful in some way. I can gather
+        that the majority of functions do not behave in this way because the majority of functions are not Homomorphisms
+         and that Linear Functions are generally easier to work with than 
+        non-Linear ones, so there is probably some utility in their simplicity.
+        <br><br>
+        <h3>Some easy results on Vector Spaces</h3>
+        (Most proofs can be found in Linear Algebra Done Right(LADR) [14-16]):
+        <ol>
+            <li>Additive Identity (\(0\)) is Unique</li>
+            <li>Additive Inverses are Unique</li>
+            <li>\(a * 0 = 0\) for scalar \(a\) and the Zero Vector</li>
+            <li>\((-1) * u = -u\) for vector \(u\)</li>
+        </ol>
+        There is an exercise that I find entertaining;
+        <br>
+        {LADR [16] Ex. 5}: Show that in the definition of a vector space, the additive inverse
+        condition can be replaced with the condition that
+        \[0v = 0, \forall v ∈ V.\]
+        The proof is a reversal of the proof of (4) above;
+        <br><br>
+        <div class="proof">
+            <h5>PROOF:</h5>
+            Sufficient to prove \(0v = 0, \forall v \in V\) if and only if \(\forall v \in V.\exists (-v) \in V\) such that \( v + (-v) = 0\)
+            <br><br>
+            "\(\implies\)"
+            <br>
+            \(0v = 0 \implies (1 + (-1))v = 0\)
+            <br>
+            \(\implies 1v + -1v = 0\)
+            <br>
+            \(\implies v + -v = 0\)
+            <br>
+            Then there exists a \(-v\) for every \(v\) as desired.
+            (Technically the fact that \(-v\) exists results from the definition of Scalar Multiplication which I have not given,
+            but shhhhh don't mention that.)
+            <br><br>
+            "\(\impliedby\)"
+            <br>
+            \( v + (-v) = 0 \implies (1+(-1))v = 0\)
+            <br>
+            \(\implies 0v = 0\)
+            <br>
+            <h5>DONE</h5>
+        </div>
+        <br>
+        I will be sure to use the fact that these two properties are interchangable whenever I need to confuse someone with a slightly
+        unfamiliar definition of a Vector Space.
+        <br><br>
+
+        <h4>Sources:</h4>
+        <a href="https://linear.axler.net/LADR4e.pdf"><div class="selection">Linear Algebra Done Right</div></a>
+        <a href="https://www.math.ucdavis.edu/~linear/linear-guest.pdf"><div class="selection">UC Davis Linear Algebra</div></a>
+    </div>
+
+</body>
+</html>
