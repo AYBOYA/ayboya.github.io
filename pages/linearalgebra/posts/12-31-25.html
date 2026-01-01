@@ -24,6 +24,142 @@
         <h3>What is a Subspace?</h3>
         Per LADR [18]; "A subset \(U\) of \(V\) is called a subspace of \(V\) if \(U\) is also a vector space with the
         same additive identity, addition, and scalar multiplication as on \(V\)".
+        <br><br>
+        LADR [18] also gives a set of criteria to check if a subset of a Vector Space is a Subspace:
+        <br><br>
+        A subset \(U\) of Vector Space \(V\) is a Subspace if:
+        <ol>
+            <li>\(0 \in U\)</li>
+            <li>\(u,v \in U \implies u + v \in U\)</li>
+            <li>\(u \in U \implies au \in U\)</li>
+        </ol>
+        for scalar \(a\).
+        <br><br>
+        This page claims that the above conditions on \(U\) imply that \(U\) also satisfies the properties
+        of a Vector Space with the same operations:
+        <ol>
+            <li>Commutativity of Addition: \(u + v = v + u\)</li>
+            <li>Associativity of Addition: \((u + v) + z = u + (v + z)\)</li>
+            <li>Existence of Additive Identity \(0\): \(u + 0 = u\)</li>
+            <li>Existence of Additive Inverses: \(u + (-u) = 0\)</li>
+            <li>Existence of Multiplicative Identity \(1\): \(u * 1 = u\)</li>
+            <li>Distributivity: \(c * (v + z) = cv + cz\)</li>
+        </ol>
+        It has taken me some time to accept this, as on its face it was not completely obvious to me
+        that simply having \(0 \in U\) and closed Vector Addition and Scalar Multiplication implies all
+        of the above properties.
+        <br><br>
+        Specifically, I had no issue with properties 1-2, 6, as these are 'inherited' from these properties
+        being true in the Vector Space \(V\). Property 3 is exactly \(0 \in U\) so that was also not an issue.
+        <br><br>
+        The key for my accepting of 4-5 is that \(U\) is a Vector Space on the same Field as \(V\), so we
+        are able to use the same Scalar Multiplication \(1 * u\) and \(-1 * u\). Properties 4-5 follow easily
+        from these.
+        <br><br>
+        One disconnect is that the closed-ness of Vector Addition and Scalar Multiplication does not
+        explicitly come up in the verification of these properties. I can accept the notion that if
+        these operations are not closed on \(U\) then they 'break'; however I have no assurance whatsoever
+        that there are no other conditions where these operations 'break'.
+        <br><br>
+        As a whole I can accept this test on educated faith, but I am personally unsatisfied.
+        <br><br>
+        <h3>Some Interesting Points</h3>
+        {LADR [19] (c)} illuminates that the set of differentiable functions on \(\mathbb{R}\) is a Subspace of
+        the set of functions \(\mathbb{R} \rightarrow \mathbb{R}\). Connection to Calculus???
+        <br><br>
+        The same page also makes the claim that the Subspaces of \(\mathbb{R}^2\) are \(0\), lines with
+        the origin, and \(\mathbb{R}^2\).
+        <br>
+        Similarly, the Subspaces of \(\mathbb{R}^3\) are \(0\), lines and planes with
+        the origin, and \(\mathbb{R}^3\).
+        <br><br>
+        Tools to prove that these lists are exhaustive are promised to come on later pages.
+        <br><br>
+        It is also of note that Subspaces are Subgroups! This connection continues in the next section.
+        <br><br>
+        <h3>Addition on Subspaces</h3>
+        The sum of two Subspaces is defined as the set of possible sums of all elements from both Subspaces.
+        <br><br>
+        Additionally, the sum of two Subspaces is the smallest Subspace that contains the elements of the summands.
+        <br>
+        (This is analagous to the minimum Subgroup containing a set, and the proof is similar)
+        <br><br>
+        <h3>Direct Sums</h3>
+        There exist special Sums of Subspaces called Direct Sums. The LADR text denotes them by a special symbol: \(\oplus\).
+        <br><br>
+        Suppose \(V_1,V_2\) are Subspaces of \(V\).
+        <br><br>
+        Then any element of \(V_1 + V_2\) can be expressed as \(v_1 + v_2\) where \(v_1 \in V_1\) and \(v_2 \in V_2\).
+        <br><br>
+        A Sum of Subspaces is a Direct Sum if every element only has one possible representation in the form \(v_1 + v_2\).
+        <br><br>
+        LADR [23] has a condition to check if a sum is a Direct Sum for which I will write the proof given in LADR [23] for two summands:
+        <br><br>
+        Suppose \(V_1,V_2\) are Subgroups of \(V\). \(V_1 + V_2\) is a Direct Sum if and only if there is only one way to
+        represent \(0\) in the form \(v_1 + v_2 = 0\) where \(v_1 \in V_1, v_2 \in V_2\). Furthermore, the representation
+        of \(0\) is specifically: \(v_1 = 0, v_2 = 0\).
+        <div class="proof">
+            <h5>PROOF:</h5>
+            "\(\implies\)"
+            <br>
+            There is only one way to represent \(0\) in the form \(v_1 + v_2 = 0\) by the definition of Direct Sum.
+            <br>
+            Furthermore, \(0 + 0 = 0\).
+            <br><br>
+            "\(\impliedby\)"
+            <br>
+            Suppose there are two representations of some \(v \in V\):
+            <br>
+            \(v_a + v_b = v\) where \(v_a \in V_1, v_b \in V_2\)
+            <br>
+            \(v_c + v_d = v\) where \(v_c \in V_1, v_d \in V_2\)
+            <br><br>
+            We have \((v_a + v_b) - (v_c + v_d) = 0\)
+            <br>
+            \(\implies (v_a - v_c) + (v_b - v_d) = 0\)
+            <br>
+            \(\implies v_a - v_c = 0 \) and \(v_b - v_d = 0\)
+            <br>
+            \(\implies v_a = v_c \) and \(v_b = v_d\)
+            <br><br>
+            Then the representations are equal, and the Sum is a Direct Sum.
+
+            <h5>DONE</h5>
+        </div>
+        <br><br>
+        I have a MAJOR issue with this proof. I see no particular reason to group \(v_a, v_c \) and \(v_b, v_d\) together.
+        Surely we could also have \(v_a + v_b - v_c = 0\) and \(v_d = 0\), for instance. OR \(v_a - v_d = 0\) and \(v_b - v_c = 0\).
+        <br><br>
+        We must have \((v_a + v_b) - (v_c + v_d)\) result in a representation in the form \(v_1 + v_2\) where
+        \(v_1 \in V_1, v_2 \in V_2\).
+        <br><br>
+        It is obvious that \((v_a - v_c) + (v_b - v_d)\) does this, as \(v_a, v_c\) and \(v_b, v_d\) are in the same Subspace
+        and therefore \((v_a - v_c) \in V_1\) and \((v_b - v_d) \in V_2\)
+        <br><br>
+        However, it is also possible, for example, that \((v_a - v_d) \in V_1\) and \((v_b - v_c) \in V_2\). This would be
+        possible in the case that \(V_1 \cap V_2 \neq \{0\}\).
+        <br><br>
+        However\(^2\), the premise "there is only one way to
+        represent \(0\) in the form \(v_1 + v_2 = 0\) where \(v_1 \in V_1, v_2 \in V_2\)" is contradictory with
+        \(V_1 \cap V_2 \neq \{0\}\) as if \(\exists w \in V_1, V_2 . w \neq 0\), then \(0_{V_1 + V_2}\) (the zero from the sum of \(V_1 + V_2\))
+        (which, yes, is technically the same zero as in \(V_1, V_2,\) and \(V\), but I wanted to be clear with the origin of each value) can be represented in two ways:
+        <br>
+        \(0_{V_1} + 0_{V_2} = 0_{V_1 + V_2}\)
+        <br>
+        \(w_{V_1} + -w_{V_2} = 0_{V_1 + V_2}\)
+        <br><br>
+        So perhaps this is just an unstated part of the proof that is omitted for brevity.
+        <br><br>
+        <h3>I WAS RIGHT</h3>
+        The VERY NEXT PROOF on THE SAME PAGE is exactly:
+        <br>
+        "Suppose \(U\) and \(W\) are subspaces of V. Then \(U + W\) is a direct sum \(\iff U \cup W = \{0\}\)"
+        <br><br>
+        Maybe this is an error in the text? Maybe this is me being wrong. Hard to know, but probably the latter.
+        <br><br>
+        This marks the end of the first Chapter of LADR. Excited for more!
+
+        
 
         <h4>Sources:</h4>
         <a href="https://linear.axler.net/LADR4e.pdf"><div class="selection">Linear Algebra Done Right</div></a>
