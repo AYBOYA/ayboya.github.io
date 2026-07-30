@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Linear Algebra</title>
+	<link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+
+<body>
+    <a href="../algebrahome.html"><div class="back">\(\impliedby\)Back</div></a>
+    <div class="center">
+        <h1>Relationship between inverses, surjectivity, and injectivity</h1>
+
+        <div class="music" style="background-color: #111111a3;">
+            Reccomended listening: <a href="https://www.youtube.com/watch?v=DPJL488cfRw&list=RDDPJL488cfRw&start_radio=1">Rachmaninoff Piano Concerto No. 3 - Yuncham Lim</a>
+        </div>
+        <br>
+        To begin, a set of essential relationships between left/right inverses and injectivity/surjectivity.
+        <br><br>
+        <h4>Proposition 1.1: The map \(f\) is injective \(\iff f\) has a left inverse</h4>
+        <div class="proof">
+            <h5>PROOF</h5>
+            let \(a,b,x\in A\)
+            <br><br>
+            \("\implies"\)
+            <br>
+            \(f:A\to B\) is injective \(\iff a \neq b \implies f(a) \neq f(b)\)
+            <br><br>
+            let \(a_0 \in A\)
+            <br><br>
+            define \(h:B \to A\) as \(z \in B \to \begin{cases}
+                                                    x & \text{if } z \in Range(f), \\
+                                                    a_0 & \text{if } z \notin Range(f).
+                                                    \end{cases}\)
+            <br><br>
+            \(h\) is well defined, as:
+            <br>
+            <ol>
+                <li>\(\forall f(x) \in B, \exists x\)</li>
+                <li>\(a,b \in A, f(x)\to a \cap f(x)\to b \implies a = b\) because \(f\) is injective</li>
+            </ol>
+            <br>
+            Finally, \(h\circ f\) has a mapping \(x \to f(x) \to x\) (identity function on A)
+            <br>
+            So \(h\) is a left inverse of \(f\)
+            <br><br>
+            \("\impliedby"\)
+            <br>
+            \(g:A \to B\)
+            <br>
+            \(j:\) left inverse of \(g\)
+            <br><br>
+            Sps. \(g\) is not injective
+            <br>
+            \(\implies \exists a,b \in A, a\neq b \cap g(a) = g(b)\)
+            <br>
+            Notice the mapping of \(j\) must include \(g(a) \to a\) AND \(g(a) \to b\)
+            <br>
+            \(j\) fails to be well defined
+            <br>
+            \(\bot\)
+            <h5>DONE</h5>
+        </div>
+
+        <h4>Proposition 1.2: The map \(f\) is surjective \(\iff f\) has a right inverse</h4>
+        <div class="proof">
+            <h5>PROOF</h5>
+            \("\implies"\)
+            <br>
+            \(f:A\to B\) is surjective \(\iff \forall b \in B \exists a \in A, f(a) \to b\)
+            <br><br>
+            for \(x\in B\) let \(w_x = \{z \in A | f(z) = x\}\), which is nonempty because \(f\) is surjective
+            <br><br>
+            define \(h:B \to A\) as \(f(x) \to\) some element in \(w_x\)
+            <br><br>
+            \(h\) is well defined, as:
+            <br>
+            <ol>
+                <li>\(\forall f(x) \in B, \exists x\) because \(f\) is surjective</li>
+                <li>\(a,b \in A, f(x)\to a \cap f(x)\to b \implies a = b\) because each \(w_x\) is nonoverlapping</li>
+            </ol>
+            <br>
+            Finally, \(f\circ h\) has a mapping \(f(x) \to q \to f(x)\) where \(q \in w_x\) (identity function on B)
+            <br>
+            So \(h\) is a right inverse of \(f\)
+            <br><br>
+            \("\impliedby"\)
+            <br>
+            \(g:A \to B\)
+            <br>
+            \(j:\) right inverse of \(g\)
+            <br><br>
+            Sps. \(g\) is not surjective
+            <br>
+            \(\implies \exists b \in B, \nexists a \in A, g(a) = b\)
+            <br>
+            Notice the mapping of \(j\) does not map \(b\) to any element
+            <br>
+            \(j\) fails to be well defined
+            <br>
+            \(\bot\)
+            <h5>DONE</h5>
+        </div>
+
+        <h4>Proposition 1.3: The map \(f\) is bijective \(\iff f\) has a function that is both a left AND right inverse</h4>
+        <div class="proof">
+            <h5>PROOF</h5>
+            \("\implies"\)
+            <br>
+            \(f\) bijective \(\implies f\) surjective and injective
+            <br>
+            \(\implies \exists\) right inverse \(p\) and left inverse \(q\)
+            <br><br>
+            Notice that the constructions for the left and right inverses in the above proofs are equivalent functions if \(f\) is both injective and surjective
+            <br><br>
+            In other words, \(p=q\) is both a left AND right inverse of \(f\)
+            <br><br>
+            \("\impliedby"\)
+            <br>
+            \(f\) has a left and right inverse
+            <br><br>
+            \(\implies f\) is injective and surjective
+            <br>
+            \(\implies f\) is bijective
+            <h5>DONE</h5>
+        </div>
+        <br><br>
+        I have now spent an entire afternoon and morning on understanding three lines of text out of a textbook of over 900 pages. Great progress!
+
+        <h4>Sources:</h4>
+        <a href="https://rksmvv.ac.in/wp-content/uploads/2021/04/David_S_Dummit_Richard_M_Foote_Abstract_Algeb_230928_225848.pdf"><div class="selection">Abstract Algebra 3rd ed. - Dummit, Foote [Page 2]</div></a>
+    </div>
+
+</body>
+</html>

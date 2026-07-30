@@ -1,7 +1,9 @@
 body{
     background-color: #1E1A1C;
+    /*background-color: rgb(100, 185, 135);*/
     color: #a5a3a4;
-    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /*font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";*/
+    font-family: cursive;
 }
 
 h1,h2,h3{
@@ -16,6 +18,12 @@ a{
 .center{
     margin:auto;
     width:65%;
+}
+
+.music{
+    padding:0.5rem;
+    color: #4f4f4f;
+    background-color: #111111a3;
 }
 
 .proof{
